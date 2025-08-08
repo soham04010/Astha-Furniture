@@ -4,8 +4,16 @@ import { Input } from "@/components/ui/input";
 
 const Header = () => {
   const categories = [
-    "Sofas", "Dining", "Bedroom", "Storage", "Office", "Decor", "Lighting", "Outdoor"
-  ];
+  { name: "Sofas", image: "/icons/sofa.jpg" },   
+  { name: "Beds", image: "/icons/bed.jpg" },
+
+  { name: "Dining", image: "/icons/dt.png" },
+  { name: "Storage", image: "/icons/storage.png" },
+  { name: "Decor", image: "/icons/decor.png" },
+  { name: "Kitchen", image: "/icons/kitchen.jpg" },
+  { name: "Outdoor", image: "/icons/outdoor.png" },
+]
+
 
   return (
     <>
@@ -76,30 +84,42 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Navigation Menu */}
-          <nav className="border-t border-border py-3 hidden md:block">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-8">
-                {categories.map((category) => (
-                  <a
-                    key={category}
-                    href="#"
-                    className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
-                  >
-                    {category}
-                  </a>
-                ))}
-              </div>
-              <div className="flex items-center gap-4">
-                <Button variant="outline" size="sm">
-                  Offers
-                </Button>
-                <Button variant="secondary" size="sm">
-                  Sale
-                </Button>
-              </div>
-            </div>
-          </nav>
+         {/* Navigation Menu */}
+<nav className="border-t border-border py-3 hidden md:block bg-white">
+  <div className="flex items-center justify-between">
+
+    {/* Categories with icons */}
+    <div className="flex items-center gap-8 overflow-x-auto scrollbar-hide">
+      {categories.map((cat) => (
+        <a
+          key={cat.name}
+          href="#"
+          className="flex flex-col items-center text-center text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 min-w-[70px]"
+        >
+          <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-200">
+            <img
+              src={cat.image}
+              alt={cat.name}
+              className="w-8 h-8 object-contain"
+            />
+          </div>
+          <span className="mt-1">{cat.name}</span>
+        </a>
+      ))}
+    </div>
+
+    {/* Right side buttons */}
+    <div className="flex items-center gap-4 pl-4">
+      <Button variant="outline" size="sm">
+        Offers
+      </Button>
+      <Button variant="secondary" size="sm">
+        Sale
+      </Button>
+    </div>
+  </div>
+</nav>
+
         </div>
       </header>
     </>
