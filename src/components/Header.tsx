@@ -1,190 +1,137 @@
 import { Button } from "@/components/ui/button";
-import { Search, ShoppingCart, User, Menu, Heart, ChevronDown, MapPin, Phone, Mail } from "lucide-react";
+import {
+  Search,
+  ShoppingCart,
+  User,
+  Menu,
+  Heart,
+  MapPin,
+  Phone,
+  Mail,
+} from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 
 const Header = () => {
   const categories = [
-    {
-      name: "Sofas & Recliners",
-      subcategories: ["3 Seater Sofas", "2 Seater Sofas", "Sofa Cum Beds", "Recliners", "Sectional Sofas"]
-    },
-    {
-      name: "Living Room",
-      subcategories: ["TV Units", "Coffee Tables", "Side Tables", "Bookshelves", "Display Units"]
-    },
-    {
-      name: "Bedroom",
-      subcategories: ["Beds", "Wardrobes", "Dressing Tables", "Bedside Tables", "Mattresses"]
-    },
-    {
-      name: "Dining",
-      subcategories: ["Dining Sets", "Dining Tables", "Dining Chairs", "Bar Stools", "Crockery Units"]
-    },
-    {
-      name: "Study & Office",
-      subcategories: ["Office Chairs", "Study Tables", "Computer Tables", "Bookshelves", "Filing Cabinets"]
-    },
-    {
-      name: "Storage",
-      subcategories: ["Wardrobes", "Shoe Racks", "Storage Cabinets", "Chest of Drawers", "Storage Beds"]
-    },
-    {
-      name: "Decor",
-      subcategories: ["Wall Art", "Lamps", "Mirrors", "Cushions", "Rugs & Carpets"]
-    }
+    { name: "Sofas", image: "/icons/sofa.jpg" },
+    { name: "Beds", image: "/icons/bed.jpg" },
+    { name: "Dining", image: "/icons/dt.png" },
+    { name: "Storage", image: "/icons/storage.png" },
+    { name: "Decor", image: "/icons/decor.png" },
+    { name: "Kitchen", image: "/icons/kitchen.jpg" },
+    { name: "Outdoor", image: "/icons/outdoor.png" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-gradient-wooden shadow-natural backdrop-blur-md">
-      {/* Top Bar */}
-      <div className="bg-wood-primary/90 py-2 text-xs text-cream">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
-            <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4 text-cream/90">
-              <div className="flex items-center space-x-1">
-                <Phone className="h-3 w-3" />
-                <span className="text-xs">+91 8800 123 456</span>
-              </div>
-              <div className="hidden sm:flex items-center space-x-1">
-                <Mail className="h-3 w-3" />
-                <span className="text-xs">info@asthafurniture.com</span>
-              </div>
+    <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
+      {/* Top Info Bar */}
+      <div className="bg-wood-primary text-cream text-xs py-2">
+        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between px-4 gap-2">
+          <div className="flex flex-wrap items-center gap-4">
+            <div className="flex items-center gap-1">
+              <Phone className="h-3 w-3" />
+              <span>+91 8800 123 456</span>
             </div>
-            <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4 text-cream/90">
-              <div className="flex items-center space-x-1">
-                <MapPin className="h-3 w-3" />
-                <span className="text-xs">Free Delivery Delhi NCR</span>
-              </div>
-              <Button variant="link" size="sm" className="text-xs p-0 h-auto text-gold-accent hover:text-cream">
-                Track Order
-              </Button>
+            <div className="hidden sm:flex items-center gap-1">
+              <Mail className="h-3 w-3" />
+              <span>info@asthafurniture.com</span>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Main Header */}
-      <div className="border-b border-wood-primary/20">
-        <div className="container mx-auto px-4">
-          <div className="flex h-16 items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center">
-              <h1 className="text-xl sm:text-2xl font-bold bg-gradient-wooden bg-clip-text text-transparent">
-                Astha Furniture
-              </h1>
-              <div className="hidden lg:block ml-3 text-xs text-wood-medium">
-                Handcrafted with Love
-              </div>
+          <div className="flex flex-wrap items-center gap-4">
+            <div className="flex items-center gap-1">
+              <MapPin className="h-3 w-3" />
+              <span>Free Delivery Delhi NCR</span>
             </div>
-
-            {/* Search Bar - Hidden on mobile */}
-            <div className="hidden lg:flex items-center flex-1 max-w-lg mx-8">
-              <div className="relative w-full">
-                <Input
-                  type="text"
-                  placeholder="Search for furniture, decor and more..."
-                  className="w-full pl-4 pr-12 h-10 bg-cream/50 border-wood-primary/30 focus:border-wood-primary focus:bg-cream"
-                />
-                <Button 
-                  size="sm" 
-                  className="absolute right-1 top-1 h-8 px-3 bg-wood-primary hover:bg-wood-dark"
-                >
-                  <Search className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex items-center space-x-1 sm:space-x-2">
-              <Button variant="ghost" size="icon" className="lg:hidden text-wood-primary hover:bg-wood-light/20">
-                <Search className="h-5 w-5" />
-              </Button>
-              
-              <Button variant="ghost" size="icon" className="text-wood-primary hover:bg-wood-light/20">
-                <Heart className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span className="sr-only">Wishlist</span>
-              </Button>
-              
-              <Button variant="ghost" size="icon" className="text-wood-primary hover:bg-wood-light/20">
-                <User className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span className="sr-only">Account</span>
-              </Button>
-              
-              <Button variant="ghost" size="icon" className="relative text-wood-primary hover:bg-wood-light/20">
-                <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span className="absolute -top-1 -right-1 bg-gold-accent text-wood-dark text-xs rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center font-semibold">
-                  2
-                </span>
-                <span className="sr-only">Cart</span>
-              </Button>
-              
-              <Button variant="ghost" size="icon" className="md:hidden text-wood-primary hover:bg-wood-light/20">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Navigation Bar */}
-      <div className="border-b border-wood-primary/20 bg-gradient-warm">
-        <div className="container mx-auto px-4">
-          <nav className="hidden md:flex items-center h-12 space-x-1 overflow-x-auto">
-            {categories.map((category) => (
-              <DropdownMenu key={category.name}>
-                <DropdownMenuTrigger asChild>
-                  <Button 
-                    variant="ghost" 
-                    className="h-full rounded-none hover:bg-wood-light/30 data-[state=open]:bg-wood-light/40 text-wood-dark hover:text-wood-primary whitespace-nowrap"
-                  >
-                    <span className="text-sm font-medium">{category.name}</span>
-                    <ChevronDown className="ml-1 h-3 w-3" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent 
-                  className="w-56 bg-cream border-wood-primary/20 shadow-natural"
-                  align="start"
-                >
-                  {category.subcategories.map((subcategory) => (
-                    <DropdownMenuItem 
-                      key={subcategory}
-                      className="hover:bg-wood-light/20 cursor-pointer text-wood-dark hover:text-wood-primary"
-                    >
-                      <a href="#" className="w-full text-sm">
-                        {subcategory}
-                      </a>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ))}
-            
-            <div className="h-6 w-px bg-wood-primary/30 mx-2" />
-            
-            <Button variant="ghost" className="h-full rounded-none text-destructive hover:bg-destructive/10 font-semibold">
-              🔥 Sale
+            <Button variant="link" size="sm" className="p-0 h-auto text-gold-accent hover:text-cream">
+              Track Order
             </Button>
-          </nav>
-          
-          {/* Mobile Search Bar */}
-          <div className="lg:hidden py-3">
-            <div className="relative">
+          </div>
+        </div>
+      </div>
+
+      {/* Main Header Row */}
+      <div className="container mx-auto px-4 border-b border-gray-200">
+        <div className="flex items-center justify-between h-16 gap-4">
+          {/* Logo */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <img src="/logo.png" alt="Astha Furniture" className="h- w-" /> 
+            <div className="hidden sm:block text-xs text-gray-500">
+            Astha Furniture
+            </div>
+          </div>
+
+          {/* Desktop Search */}
+          <div className="hidden lg:flex flex-1 max-w-2xl">
+            <div className="relative w-full">
               <Input
                 type="text"
-                placeholder="Search furniture..."
-                className="w-full pl-4 pr-12 h-10 bg-cream/50 border-wood-primary/30 focus:border-wood-primary focus:bg-cream"
+                placeholder="Search for furniture, decor and more..."
+                className="w-full pl-4 pr-12 h-10 bg-gray-50 border-gray-300 focus:border-wood-primary focus:ring-wood-primary"
               />
-              <Button 
-                size="sm" 
+              <Button
+                size="sm"
                 className="absolute right-1 top-1 h-8 px-3 bg-wood-primary hover:bg-wood-dark"
               >
-                <Search className="h-4 w-4" />
+                <Search className="h-4 w-4 text-white" />
               </Button>
             </div>
           </div>
+
+          {/* Action Buttons */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Mobile Search */}
+            <Button variant="ghost" size="icon" className="lg:hidden">
+              <Search className="h-5 w-5" />
+            </Button>
+
+            <Button variant="ghost" size="icon">
+              <Heart className="h-5 w-5" />
+            </Button>
+
+            <Button variant="ghost" size="icon">
+              <User className="h-5 w-5" />
+            </Button>
+
+            <Button variant="ghost" size="icon" className="relative">
+              <ShoppingCart className="h-5 w-5" />
+              <span className="absolute -top-1 -right-1 bg-gold-accent text-wood-dark text-xs rounded-full h-4 w-4 flex items-center justify-center font-semibold">
+                2
+              </span>
+            </Button>
+
+            {/* Mobile Menu */}
+            <Button variant="ghost" size="icon" className="md:hidden">
+              <Menu className="h-5 w-5" />
+            </Button>
+          </div>
         </div>
       </div>
+
+      {/* Categories Row */}
+      <nav className="bg-gray-50 border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-6 overflow-x-auto scrollbar-hide py-3">
+            {categories.map((cat) => (
+              <a
+                key={cat.name}
+                href="#"
+                className="flex flex-col items-center min-w-[64px] group"
+              >
+                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-200 group-hover:border-wood-primary transition-all">
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+                <span className="mt-1 text-xs font-medium text-gray-700 group-hover:text-wood-primary">
+                  {cat.name}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
     </header>
   );
 };
