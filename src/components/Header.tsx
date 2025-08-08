@@ -16,16 +16,14 @@ const Header = () => {
     { name: "Sofas", image: "/icons/sofa.jpg" },
     { name: "Beds", image: "/icons/bed.jpg" },
     { name: "Dining", image: "/icons/dt.png" },
-    { name: "Storage", image: "/icons/storage.png" },
-    { name: "Decor", image: "/icons/decor.png" },
     { name: "Kitchen", image: "/icons/kitchen.jpg" },
-    { name: "Outdoor", image: "/icons/outdoor.png" },
+   
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
       {/* Top Info Bar */}
-      <div className="bg-wood-primary text-cream text-xs py-2">
+      <div className="bg-black text-white text-xs py-2">
         <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between px-4 gap-2">
           <div className="flex flex-wrap items-center gap-4">
             <div className="flex items-center gap-1">
@@ -108,16 +106,16 @@ const Header = () => {
       </div>
 
       {/* Categories Row */}
-      <nav className="bg-gray-50 border-b border-gray-200">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-6 overflow-x-auto scrollbar-hide py-3">
+      <nav className="bg-gray-50 border-b border-gray-200 place-items-center">
+        <div className="container mx-auto px-10">
+          <div className="flex items-center justify-center gap-6 overflow-x-auto scrollbar-hide py-3">
             {categories.map((cat) => (
               <a
                 key={cat.name}
                 href="#"
                 className="flex flex-col items-center min-w-[64px] group"
               >
-                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-200 group-hover:border-wood-primary transition-all">
+                <div className="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center border border-gray-200 group-hover:border-wood-primary transition-all">
                   <img
                     src={cat.image}
                     alt={cat.name}
