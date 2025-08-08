@@ -1,128 +1,138 @@
-import { Search, ShoppingCart, User, Heart, Menu, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Search,
+  ShoppingCart,
+  User,
+  Menu,
+  Heart,
+  MapPin,
+  Phone,
+  Mail,
+} from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 const Header = () => {
   const categories = [
-  { name: "Sofas", image: "/icons/sofa.jpg" },   
-  { name: "Beds", image: "/icons/bed.jpg" },
-
-  { name: "Dining", image: "/icons/dt.png" },
-  { name: "Storage", image: "/icons/storage.png" },
-  { name: "Decor", image: "/icons/decor.png" },
-  { name: "Kitchen", image: "/icons/kitchen.jpg" },
-  { name: "Outdoor", image: "/icons/outdoor.png" },
-]
-
+    { name: "Sofas", image: "/icons/sofa.jpg" },
+    { name: "Beds", image: "/icons/bed.jpg" },
+    { name: "Dining", image: "/icons/dt.png" },
+    { name: "Storage", image: "/icons/storage.png" },
+    { name: "Decor", image: "/icons/decor.png" },
+    { name: "Kitchen", image: "/icons/kitchen.jpg" },
+    { name: "Outdoor", image: "/icons/outdoor.png" },
+  ];
 
   return (
-    <>
-      {/* Top Bar */}
-      <div className="bg-primary text-primary-foreground py-2 px-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
-              <Phone className="h-4 w-4" />
-              <span>+91-9314444747</span>
+    <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
+      {/* Top Info Bar */}
+      <div className="bg-wood-primary text-cream text-xs py-2">
+        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between px-4 gap-2">
+          <div className="flex flex-wrap items-center gap-4">
+            <div className="flex items-center gap-1">
+              <Phone className="h-3 w-3" />
+              <span>+91 8800 123 456</span>
             </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4" />
-              <span>Find Store</span>
+            <div className="hidden sm:flex items-center gap-1">
+              <Mail className="h-3 w-3" />
+              <span>info@asthafurniture.com</span>
             </div>
           </div>
-          <div className="hidden md:flex items-center gap-4">
-            <span>Fast Delivery</span>
-            <span>Track Order</span>
-            <span>Help Center</span>
+          <div className="flex flex-wrap items-center gap-4">
+            <div className="flex items-center gap-1">
+              <MapPin className="h-3 w-3" />
+              <span>Free Delivery Delhi NCR</span>
+            </div>
+            <Button variant="link" size="sm" className="p-0 h-auto text-gold-accent hover:text-cream">
+              Track Order
+            </Button>
           </div>
         </div>
       </div>
 
-      {/* Main Header */}
-      <header className="bg-background border-b border-border shadow-warm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4">
-          {/* Main Header Row */}
-          <div className="flex items-center justify-between py-4">
-            {/* Logo */}
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-primary">
-                Astha <span className="text-wood-primary">Furniture</span>
-              </h1>
-              <p className="text-xs text-muted-foreground ml-2 hidden sm:block">
-                Furniture... handed with love
-              </p>
+      {/* Main Header Row */}
+      <div className="container mx-auto px-4 border-b border-gray-200">
+        <div className="flex items-center justify-between h-16 gap-4">
+          {/* Logo */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <img src="/logo.png" alt="Astha Furniture" className="h- w-" /> 
+            <div className="hidden sm:block text-xs text-gray-500">
+            Astha Furniture
             </div>
+          </div>
 
-            {/* Search Bar */}
-            <div className="flex-1 max-w-2xl mx-8 hidden md:block">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                <Input
-                  placeholder="Search Products, Color & More..."
-                  className="pl-10 pr-4 py-2 w-full bg-muted/50 border-border focus:bg-background transition-colors"
-                />
-              </div>
-            </div>
-
-            {/* Actions */}
-            <div className="flex items-center gap-3">
-              <Button variant="ghost" size="icon" className="hidden md:flex">
-                <Heart className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <User className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="relative">
-                <ShoppingCart className="h-5 w-5" />
-                <span className="absolute -top-1 -right-1 bg-gold-accent text-primary text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                  0
-                </span>
-              </Button>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
+          {/* Desktop Search */}
+          <div className="hidden lg:flex flex-1 max-w-2xl">
+            <div className="relative w-full">
+              <Input
+                type="text"
+                placeholder="Search for furniture, decor and more..."
+                className="w-full pl-4 pr-12 h-10 bg-gray-50 border-gray-300 focus:border-wood-primary focus:ring-wood-primary"
+              />
+              <Button
+                size="sm"
+                className="absolute right-1 top-1 h-8 px-3 bg-wood-primary hover:bg-wood-dark"
+              >
+                <Search className="h-4 w-4 text-white" />
               </Button>
             </div>
           </div>
 
-         {/* Navigation Menu */}
-<nav className="border-t border-border py-3 hidden md:block bg-white">
-  <div className="flex items-center justify-between">
+          {/* Action Buttons */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Mobile Search */}
+            <Button variant="ghost" size="icon" className="lg:hidden">
+              <Search className="h-5 w-5" />
+            </Button>
 
-    {/* Categories with icons */}
-    <div className="flex items-center gap-8 overflow-x-auto scrollbar-hide">
-      {categories.map((cat) => (
-        <a
-          key={cat.name}
-          href="#"
-          className="flex flex-col items-center text-center text-sm font-medium text-foreground hover:text-primary transition-colors duration-200 min-w-[70px]"
-        >
-          <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-200">
-            <img
-              src={cat.image}
-              alt={cat.name}
-              className="w-8 h-8 object-contain"
-            />
+            <Button variant="ghost" size="icon">
+              <Heart className="h-5 w-5" />
+            </Button>
+
+            <Button variant="ghost" size="icon">
+              <User className="h-5 w-5" />
+            </Button>
+
+            <Button variant="ghost" size="icon" className="relative">
+              <ShoppingCart className="h-5 w-5" />
+              <span className="absolute -top-1 -right-1 bg-gold-accent text-wood-dark text-xs rounded-full h-4 w-4 flex items-center justify-center font-semibold">
+                2
+              </span>
+            </Button>
+
+            {/* Mobile Menu */}
+            <Button variant="ghost" size="icon" className="md:hidden">
+              <Menu className="h-5 w-5" />
+            </Button>
           </div>
-          <span className="mt-1">{cat.name}</span>
-        </a>
-      ))}
-    </div>
-
-    {/* Right side buttons */}
-    <div className="flex items-center gap-4 pl-4">
-      <Button variant="outline" size="sm">
-        Offers
-      </Button>
-      <Button variant="secondary" size="sm">
-        Sale
-      </Button>
-    </div>
-  </div>
-</nav>
-
         </div>
-      </header>
-    </>
+      </div>
+
+      {/* Categories Row */}
+      <nav className="bg-gray-50 border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-6 overflow-x-auto scrollbar-hide py-3">
+            {categories.map((cat) => (
+              <a
+                key={cat.name}
+                href="#"
+                className="flex flex-col items-center min-w-[64px] group"
+              >
+                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-gray-200 group-hover:border-wood-primary transition-all">
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+                <span className="mt-1 text-xs font-medium text-gray-700 group-hover:text-wood-primary">
+                  {cat.name}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
+    </header>
   );
 };
 

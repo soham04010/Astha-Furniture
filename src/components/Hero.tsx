@@ -13,11 +13,11 @@ const Hero = () => {
                 <Star className="h-5 w-5 fill-current" />
                 <span className="text-sm font-medium">Premium Quality Furniture</span>
               </div>
-              <h1 className="text-amber-300 md:text-6xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight text-amber-300">
                 Transform Your
                 <span className="block text-amber-300">Living Space</span>
               </h1>
-              <p className="text-amber-300 md:text-xl max-w-lg">
+              <p className="text-amber-300 text-lg md:text-xl max-w-lg">
                 Discover our exquisite collection of handcrafted wooden furniture that brings 
                 warmth and elegance to every corner of your home.
               </p>
