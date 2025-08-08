@@ -31,47 +31,47 @@ const Categories = () => {
   ];
 
   return (
-    <section className="py-16 bg-background">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Shop by Category
+    <section className="py-16 sm:py-20 bg-gradient-to-b from-cream to-wood-light/20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-wood-dark">
+            Explore Our Wooden Collection
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Explore our carefully curated collections designed to transform every space in your home
+          <p className="text-wood-medium text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+            Discover our carefully handcrafted wooden furniture designed to bring warmth and elegance to your home
           </p>
         </div>
 
         {/* Categories Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {categories.map((category, index) => (
             <Card 
               key={category.id} 
-              className="group relative overflow-hidden border-0 shadow-warm hover:shadow-elegant transition-all duration-500 animate-fade-in"
+              className="group relative overflow-hidden hover:shadow-elegant transition-all duration-500 animate-fade-in border-0 bg-gradient-card shadow-natural hover:scale-[1.02]"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className="relative">
+              <div className="relative h-80 sm:h-96">
                 <img
                   src={category.image}
-                  alt={category.title}
+                  alt={`${category.title} - Premium Wooden Furniture Collection`}
                   className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-wood-dark/90 via-wood-primary/50 to-transparent" />
                 
                 {/* Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="bg-gold-accent text-primary px-3 py-1 rounded-full text-sm font-medium">
+                <div className="absolute top-4 sm:top-6 left-4 sm:left-6">
+                  <span className="bg-gold-accent text-wood-dark px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-glow">
                     {category.badge}
                   </span>
                 </div>
 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="text-2xl font-bold mb-2">{category.title}</h3>
-                  <p className="text-white/80 mb-3">{category.subtitle}</p>
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 text-white">
+                  <h3 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3">{category.title}</h3>
+                  <p className="text-cream/95 mb-3 sm:mb-4 text-base sm:text-lg">{category.subtitle}</p>
+                  <p className="text-gold-accent font-bold text-lg sm:text-xl mb-4 sm:mb-6">{category.price}</p>
                   
                   <div className="flex items-center justify-between">
                     <div>
@@ -81,26 +81,18 @@ const Categories = () => {
                     </div>
                     
                     <Button 
-                      variant="default" 
-                      size="sm" 
-                      className="group/btn opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      variant="secondary" 
+                      size="lg" 
+                      className="group/btn bg-cream/20 backdrop-blur-md text-white border-cream/30 hover:bg-cream hover:text-wood-dark transition-all duration-300 font-semibold w-full sm:w-auto"
                     >
-                      Shop Now
-                      <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                      Shop Collection
+                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover/btn:translate-x-2 transition-transform duration-300" />
                     </Button>
                   </div>
                 </div>
               </div>
             </Card>
           ))}
-        </div>
-
-        {/* All Categories Button */}
-        <div className="text-center mt-12">
-          <Button variant="default" size="lg" className="group">
-            View All Categories
-            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
         </div>
       </div>
     </section>
