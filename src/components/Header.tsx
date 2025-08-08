@@ -54,7 +54,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 gap-4">
           {/* Logo */}
           <div className="flex items-center gap-3 flex-shrink-0">
-            <img src="/logo.png" alt="Astha Furniture" className="h- w-" /> 
+            <img src="/astha logo1.png" alt="Astha Furniture" className="h-10 w-auto" /> 
             <div className="hidden sm:block text-xs text-gray-500">
             Astha Furniture
             </div>
